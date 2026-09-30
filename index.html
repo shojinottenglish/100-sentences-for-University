@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>難解・頻出構文 英文解釈ドリル</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+    <style>
+        body { font-family: 'Inter', 'Noto Sans JP', sans-serif; background-color: #f3f4f6; }
+        .card-flip { transition: transform 0.4s ease-in-out; }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const drillData = [
+            // 1〜20問目：論理的で詳細な解説にアップデート
+            { id: 1, en: "Not only does this device save time, but it also reduces the risk of human error.", ja: "この装置は時間を節約するだけでなく、ヒューマンエラーのリスクも減らす。", pt: "否定語句による倒置", ex: "副詞句のNot onlyが文頭に出ることで、修飾される述語が連動するのですが、一般動詞の場合は、本来は動詞の前に置かれていた（時間的経過で消えた）do、does、didを補足して副詞の要求を満たします。主語の後に動詞を置くという原則を崩しません。主節が疑問文の語順（does this device save）になると便宜上覚えておくといいでしょう。いわゆる倒置構文です。" },
+            { id: 2, en: "Only when we are deprived of our freedom do we realize its true value.", ja: "自由を奪われて初めて、私たちはその本当の価値に気づく。", pt: "Only＋副詞節による倒置", ex: "Only（〜だけ）という強い限定の副詞句が文頭に出ることで、文の焦点がそこに向かい、後ろの構造が引きずられます。これも第1問と同様、一般動詞realizeの前に隠れていたdoが引っ張り出され「do we realize」となります。結果として疑問文と同じ語順になる「倒置」が起きています。理屈を知れば丸暗記は不要です。" },
+            { id: 3, en: "Some students prefer studying in groups, others in complete silence.", ja: "グループで勉強するのを好む学生もいれば、完全な静寂の中で勉強するのを好む学生もいる。", pt: "省略と対比", ex: "英語は「同じ言葉の繰り返しを極端に嫌う」言語です。前半の prefer studying が既に提示されているため、後半の others (prefer studying) in complete silence では動詞部分がごっそり省略されています。パズルのように、前半の構造と照らし合わせて欠けているピースを頭の中で補うのが、この構文を読み解くポイントです。" },
+            { id: 4, en: "Cramming for an exam is no more effective in the long run than eating a week's meals in one day.", ja: "試験のための詰め込み勉強は、1週間分の食事を1日で食べるのと同じように、長い目で見れば効果的ではない。", pt: "クジラの構文（同等否定）", ex: "noは「ゼロ」を表す強い否定です。つまり「Aが効果的である度合い」と「Bが効果的である度合い」の差が「ゼロ（no）」だと言っています。B（1週間分の食事を1日で食べる）が常識的に考えて「効果ゼロ」なので、それと差がゼロであるA（詰め込み勉強）も「効果ゼロ」となる、という非常に論理的な構文です。" },
+            { id: 5, en: "Reading is to the mind what exercise is to the body.", ja: "読書と精神の関係は、運動と身体の関係と同じである。", pt: "A is to B what C is to D", ex: `この名言で使われている what は、関係代名詞の特別（慣用的）な用法で、「〜と同様のもの・こと」 という意味を持つ関係代名詞（先行詞を含むもの）として機能しています。
+「A is to B what C is to D（AのBに対する関係は、CのDに対する関係と同じだ）」という構文の核となる、whatの仕組みを3つの視点から細かく解説します。
+
+1. 文法的な役割（なぜこの位置に入るのか）
+ここでの what は、「the thing which（〜であるところのもの）」 に置き換えることができます。
+直訳的な構造:
+Reading is to the mind [ the thing which ] exercise is to the body.
+（読書が心に対して持つ関係は、運動が体に対して持っているそれ（関係）と同じである）
+what が導く節（what exercise is to the body）全体が、前の「Reading is to the mind」と同格、あるいはそれと比較される「名詞節（ひと塊の名詞）」として機能しています。
+
+2. 「不完全な文」を補う機能
+関係代名詞の what の後ろには、必ず要素が1つ足りない「不完全な文」が来ます。今回の文を分解してみましょう。
+exercise（主語：S）
+is（動詞：V）
+to the body（修飾語：M）
+ここで、動詞 is の後ろにあるはずの補語（C）が欠けています。本来なら「運動は体にとって【〇〇】である」となるはずの【〇〇】の役割を、what が身代わりに引き受けて前に出ています。
+つまり、what は「運動が体にとって『ある状態・存在』であるところのもの」という意味を作っています。
+
+3. なぜ「関係（ratio）」の意味になるのか
+文中に「関係（relation / ratio）」という単語は一言も出てきません。それなのに、なぜ「関係と同じだ」と訳すのでしょうか。
+これは、英語の比率（プロポーション）を表す論理構造から来ています。
+数学の比の計算（A : B = C : D）と同じ頭の使い方案内です。
+「読書 ➔ 心」への作用の度合い（A is to B）
+「それと同じだけのものを（what）」
+「運動 ➔ 体」も持っている（C is to D）
+この「イコール（＝）」で結ぶ接着剤の役割を what が果たしているため、日本語に訳すときは「〜の関係は、〜の関係と同じだ」と意訳するのが最も自然になります。
+
+💡 応用：同じ what の仲間たち
+この「等号（＝）」や「状態」を表す what は、日常会話の決まり文句にもよく登場します。
+What is more（さらに、なお悪いことには ➔ 直訳：もっとあるところのものは）
+He is not what he used to be.（彼は昔の彼（のよう）ではない ➔ 過去の彼という状態と、今の状態の比較）` },
+            { id: 6, en: "The committee rejected the proposal that the budget be increased.", ja: "委員会は、予算を増やすべきだという提案を却下した。", pt: "同格のthat / 提案・要求の動詞・名詞に続くthat節", ex: "proposal（提案）やdemand（要求）といった「これからこうすべきだ」という未来への働きかけを表す名詞・動詞の後ろのthat節では、「まだ実現していないが、頭の中で考えた事実」として仮定法現在（動詞の原形）が使われます。見えないshould（〜すべき）が隠れていると考えると、なぜいきなり原形のbeが来るのか納得できるでしょう。" },
+            { id: 7, en: "Such was the force of the explosion that all the windows were broken.", ja: "爆発の威力はすさまじく、窓ガラスがすべて割れてしまった。", pt: "C V Sの倒置 / Such ~ that構文", ex: "元々は The force of the explosion was such（爆発の力は「そのようなもの」だった）という第2文型です。この「そのようなもの（Such）」を強調して文頭に出した結果、Such + V + S と倒置が起きました。後ろのthat節（〜するほど）と呼応して「とても（そのような）Cだったので〜だ」という意味を作ります。" },
+            { id: 8, en: "Written in plain English, this manual is easy for beginners to understand.", ja: "平易な英語で書かれているので、このマニュアルは初心者にも理解しやすい。", pt: "分詞構文 / 難易形容詞", ex: "「書かれているので」と理由を補って訳しますが、これは接続詞（Becauseなど）が時間的経過で削ぎ落とされ、動詞が分詞に変化した「分詞構文」です。本来は Being written ですが、Being も省略されています。後半は「初心者にとって（for beginners）理解するのが（to understand）簡単だ（easy）」という、いわゆるタフ構文の構造を取っています。" },
+            { id: 9, en: "Had the government taken action sooner, the economic crisis could have been avoided.", ja: "政府がもっと早く行動を起こしていれば、経済危機は避けられたかもしれない。", pt: "仮定法過去完了の倒置（ifの省略）", ex: "英語では、If（もし〜なら）という接続詞を省略すると、その代償として「これは普通の文じゃないぞ」というサインを出すため、主語と動詞（助動詞）をひっくり返します（倒置）。ここでは If the government had taken... のIfが消滅し、hadが前に出て Had the government taken になっています。" },
+            { id: 10, en: "The extent to which technology influences our daily lives is often underestimated.", ja: "テクノロジーが私たちの日常生活に影響を与える程度は、しばしば過小評価される。", pt: "前置詞＋関係代名詞", ex: "technology influences our daily lives to the extent（テクノロジーは私たちの生活に「その程度まで」影響を与える）という文が元になっています。この to the extent の extent が関係代名詞 which に化けて、前置詞 to とセットで前に移動した形です。直訳「〜するその程度」から「〜する度合い」と訳出します。" },
+            { id: 11, en: "Exhausted as she was from the long journey, she immediately started working.", ja: "長旅で疲れ果てていたにもかかわらず、彼女はすぐに働き始めた。", pt: "譲歩の倒置 (C as S V)", ex: "形容詞や分詞（Exhausted）が文頭にポツンと置かれている場合、「譲歩（〜だけれども）」を疑います。元々は Though she was exhausted... でしたが、強調したいExhaustedを文頭に引っ張り出し、接続詞は軽い as で代用した形です。「疲れ果ててはいたが」という文脈の対比を読み取るのがポイントです。" },
+            { id: 12, en: "It is not what you read, but how you read it that really matters.", ja: "本当に重要なのは、何を読むかではなく、それをどう読むかである。", pt: "強調構文 / not A but B", ex: "It is 〜 that ... の「強調構文」の〜の部分に、not A but B（AではなくB）というセットが丸ごと挟まれています。さらにAとBの中身が間接疑問文（疑問詞＋S＋V）になっており、複数の構文がマトリョーシカのように組み合わさった見事な英文です。落ち着いて枠組みを分解すれば難しくありません。" },
+            { id: 13, en: "It goes without saying that an education provides you with more than just a diploma.", ja: "教育が単なる卒業証書以上のものを与えてくれることは、言うまでもない。", pt: "慣用表現 (It goes without saying that...)", ex: "直訳すると「それは言うことなしで進む」。つまり「わざわざ口に出すまでもなく（事実として）通用する」＝「〜は言うまでもない」という理屈です。it は形式主語で、真の主語は that 以下。丸暗記でも良いですが、理屈を知っていると go without のニュアンスが掴みやすくなります。" },
+            { id: 14, en: "You cannot read this novel without being deeply moved by the protagonist's courage.", ja: "この小説を読めば、主人公の勇気に必ず深く感動するだろう。", pt: "cannot ... without ~ing", ex: "「〜することなしに（without）…できない（cannot）」という二つの否定語がぶつかることで、数学のマイナス×マイナス＝プラスのように「…すれば必ず〜する」という強い肯定の意味を生み出します。英語特有のレトリック（修辞技法）で、筆者の強い感情や確信を伝える際によく使われます。" },
+            { id: 15, en: "The deeper we delve into the mystery, the more confused we become.", ja: "謎を深く探求すればするほど、私たちはより混乱する。", pt: "The 比較級 ~, the 比較級 ...", ex: "本来、比較級に the は付きませんが、この the は「その分だけ」という副詞の働きをします。「（前半の条件の）分だけ深く探求すると、（後半の）分だけ混乱する」というシーソーのような関係を表します。文の構造としては前の The 比較級 が従属節（条件）、後ろが主節の働きをしています。" },
+            { id: 16, en: "He is one of the greatest scientists that have ever lived.", ja: "彼はこれまで生きてきた中で最も偉大な科学者の一人である。", pt: "関係代名詞の先行詞と動詞の呼応", ex: "関係代名詞 that の直後の動詞を has にするか have にするか、という引っかけ問題の定番です。that が指している（代名詞の代わりをしている）のは直前の scientists（複数形）です。したがって、that = scientists となり、受ける動詞も複数形の have になります。理屈で考えれば間違えません。" },
+            { id: 17, en: "What with the high cost of living and the low wages, it is hard to make ends meet.", ja: "生活費の高さやら賃金の低さやらで、やりくりするのは大変だ。", pt: "What with A and B", ex: `1. 仕組み：「何やかんや」を指す what
+ここでの what は、疑問文の「何？」ではなく、「あるもの」「いくつかのこと」というニュアンス（非限定の代名詞・副詞）から発展したものです。
+日本語でも、理由をはっきり特定せずに「何やかんやあって」とか「あれやこれやで」と言いますよね。英語の what もこれと全く同じ感覚です。
+What（何やかんや） ➔ with A and B（AやBを伴って）
+つまり、直訳すると「AやBといった（理由の）数々を伴って」となり、それが転じて「AやらBやらで」という理由を表すお決まりの形（慣用句）になりました。
+
+2. 語源：歴史的な成り立ち
+この表現は中世英語（数百年以上前）から使われています。
+もともとは and で並べず、【 what with ＋ [名詞] 】 単体で「〜のせいで」「〜も手伝って」という意味で使われていました。
+昔のイメージ: 「（頭に浮かぶ）あれこれのもの（What）、特に〇〇という理由と一緒に（with 〇〇）」
+これが時代を経て、よくある悪い理由を2つ（AとB）並べて、「What with A, and what with B」 と繰り返す形になり、最終的に前の what が省略されて現在の 「What with A and B」 という形に落ち着きました。
+
+➔ 「関係代名詞の what」との共通点
+前の質問にあった Reading is to the mind what... の what は、「〜であるところのもの」という抽象的な中身を指していました。
+今回の What with の what も、特定の1つを指すのではなく、「理由となっているあれこれ（のもの）」 という抽象的な事柄を指しています。形は違えど、「具体的な名前の代わりに、ふんわりと全体を指す」 という what 本来の機能が活きています。
+
+💡 補足：よく似た表現「What between A and B」
+What with は理由が複数あるときに使いますが、理由が2つのものの「板挟み（間）」になっている時は What between A and B を使うこともあります。
+What between strict timelines and high stress, I am exhausted.
+（厳しい納期やら高いストレスやらで [＝その2つの間で]、私は疲れ果てている）` },
+            { id: 18, en: "It is high time you realized that you are no longer a child.", ja: "もう自分が子供ではないことに気づいてもよい頃だ。", pt: "It is high time + 仮定法過去", ex: "「もう〜する時間だ」という意味ですが、ポイントは「（まだしていないけれど）本当はもうしているべきだ」という現実とのギャップ（非現実）を含んでいる点です。現実と距離を置くために、動詞は過去形（realized）を用いる「仮定法過去」になります。high が付くと「とっくに」という焦りが強調されます。" },
+            { id: 19, en: "Many people take it for granted that clean water will always be available.", ja: "多くの人は、きれいな水が常に利用できることを当然だと思っている。", pt: "take it for granted that ...", ex: "直訳は「それ（it）を授与されたもの（granted）として受け取る（take）」。つまり「神様から与えられて当然のものとみなす」という理屈です。it は形式目的語で、本当の中身は後ろの that節 です。文構造はSVOCの第5文型（it = granted）と考えるとスッキリします。" },
+            { id: 20, en: "I like him all the better for his human weaknesses.", ja: "彼には人間らしい弱点があるからこそ、いっそう彼のことが好きだ。", pt: "all the 比較級 for / because", ex: "the は15番と同じく「その分だけ」という副詞、all はそれを強調して「全くその分だけ」という意味です。「for 以下の理由の分だけ、その分いっそう〜だ」という理屈です。彼の弱点というマイナス要素がある「からこそ、余計に」好きだという、人間の心理の機微を表す構文です。" },
+            
+            // 21〜40問目：詳細解説バージョンにアップデート
+            { id: 21, en: "As is often the case with young people, he tends to be overly optimistic.", ja: "若者にはよくあることだが、彼は楽観的すぎるきらいがある。", pt: "疑似関係代名詞の as", ex: `Asは「〜と同じように」というイコールの関係を表す接続詞から派生した「疑似関係代名詞」です。
+直訳すると「若者についてよくあるケースである【のと同じように】、彼は楽観的すぎる傾向がある」。
+as自体が is の主語になっており、その先行詞は主節全体（彼が楽観的すぎる傾向があること）を指します。「若者にはよくあることだけど」という前置きの決まり文句として使われます。which is often the case とも似ていますが、asの場合はこのように文頭に出すことができるのが特徴です。` },
+            { id: 22, en: "All things considered, we have made significant progress this year.", ja: "あらゆることを考慮すると、今年は大きな進歩を遂げた。", pt: "独立分詞構文", ex: `分詞構文の応用「独立分詞構文」です。
+本来、分詞構文は主節の主語（we）と分詞の主語が同じ場合に主語を省略しますが、ここでは「すべての事柄（All things）」と「私たち（we）」で主語が異なります。そのため、省略せずに All things をそのまま残しています。
+直訳「すべての事柄が（私達によって）考慮されると（considered）」。慣用句として「あらゆることを考慮すると（＝総合的に見て）」と訳します。` },
+            { id: 23, en: "He lost his job, and to make matters worse, he fell seriously ill.", ja: "彼は仕事を失い、さらに悪いことに、重病に倒れた。", pt: "独立不定詞", ex: `「to make matters worse」は、文全体を修飾する「独立不定詞」と呼ばれる用法です。
+matters は「事態、状況」という意味。直訳すると「事態（matters）をより悪く（worse）する（to make）ために」となりますが、それが転じて「さらに悪いことには」という結果や追加の情報を表す挿入句として機能します。What is worse とほぼ同じ働きをします。` },
+            { id: 24, en: "However hard you may try, you cannot master English in a month.", ja: "どんなに一生懸命努力しても、1ヶ月で英語を習得することはできない。", pt: "複合関係副詞 (However + 形容詞/副詞 + S + V)", ex: `複合関係副詞の however を用いた譲歩（〜しようとも）の構文です。
+However は how（どのくらい）に ever（〜でも）がついたもので、「どんなに〜でも」という意味になります。
+ポイントは語順です。how は程度を尋ねる副詞なので、必ず後ろに形容詞や副詞（ここでは hard）を直接引き連れます。
+「However（どんなに）＋ hard（一生懸命）＋ you may try（あなたが努力しようとも）」。No matter how hard... に書き換えられます。` },
+            { id: 25, en: "Read such books as will benefit you in the future.", ja: "将来あなたのためになるような本を読みなさい。", pt: "such ~ as ... (疑似関係代名詞)", ex: `「A is the same as B（AはBと同じ）」という比較の構造から派生した構文です。
+such（そのような）に対して、何と同じなのかを as 以下で示しています。ここでの as は、後ろの will benefit の主語の働きをしているため、「疑似関係代名詞」と呼ばれます。
+直訳すると「将来あなたのためになるだろう【のと同じような】本を読みなさい」となります。関係代名詞 which や that と同じ感覚で、as の後ろが不完全な文になっていることに注目してください。` },
+            { id: 26, en: "She is the last person I would have expected to see at the concert.", ja: "コンサートで彼女に会うとは、夢にも思わなかった（彼女は最も会いそうにない人だ）。", pt: "the last person to V / the last person + 関係詞", ex: `直訳すると「彼女は、私がコンサートで会うと予想したであろう【最後の人】だ」。
+「最後の人」とはどういうことでしょうか？これは「順番に数え上げていって、一番最後に名前が挙がる人」という意味です。つまり「最も〜しそうにない人」「絶対に〜しない人」という強い否定のニュアンスを含みます。not などの否定語を使わずに否定の意味を表す、英語特有のウィットに富んだ表現です。` },
+            { id: 27, en: "For all his wealth and power, he is not a happy man.", ja: "富と権力を持っているにもかかわらず、彼は幸せな男ではない。", pt: "For all ~ （譲歩）", ex: `「〜にもかかわらず」という譲歩を表す前置詞句です。
+なぜ for all が「〜にもかかわらず」になるのでしょうか？この for は「〜を考慮して・〜に対して」という交換・対応のニュアンスを持っています。
+「彼の富や権力の【すべて（all）】を【考慮に入れた・引き換えにした（for）】としても、それでも彼は幸せではない」という対比の論理から、「〜を持っているにもかかわらず」という訳が生まれます。With all ~ とも言い換えられます。` },
+            { id: 28, en: "The importance of early childhood education cannot be overemphasized.", ja: "幼児教育の重要性は、いくら強調してもしすぎることはない。", pt: "cannot be ~ too... / cannot be over-V", ex: `「cannot ... too ~」や「cannot be over-V」の構文で、「いくら〜してもしすぎることはない」と訳します。
+直訳から論理的に考えましょう。
+cannot（〜できない）＋ overemphasize（過剰に強調する）。つまり「【過剰に強調する】という限界点を突破することが【できない】」＝「どれだけ強調しても、まだ足りないくらいだ」という強い肯定の意味になります。` },
+            { id: 29, en: "We cannot fail to notice the devastating effects of climate change.", ja: "私たちは気候変動の壊滅的な影響に気づかないわけにはいかない。", pt: "cannot fail to V", ex: `二重否定による強い肯定の表現です。
+fail to V は「〜し損なう」「〜できない」という意味です。それに cannot（〜できない）が合わさることで、「気づき【損なう】ことなど【できない】」＝「絶対に気づくはずだ」「気づかないわけにはいかない」となります。
+マイナス×マイナス＝プラスという、論理的な英語の性質がよく表れた構文です。` },
+            { id: 30, en: "There is no denying the fact that the birth rate in Japan is declining rapidly.", ja: "日本の出生率が急速に低下しているという事実は否定できない。", pt: "There is no ~ing", ex: `「There is no ~ing」は「〜することは不可能だ（＝It is impossible to V / We cannot V）」という意味を表す動名詞の慣用表現です。
+「〜すること（denying）が存在しない（There is no）」という直訳から、「絶対に〜できない」という強い否定になります。
+the fact の後ろの that は「同格のthat」で、「日本の出生率が急速に低下している【という】事実」と、前の名詞の内容を詳しく説明しています。` },
+            { id: 31, en: "No sooner had I left the house than it started to rain heavily.", ja: "私が家を出るか出ないかのうちに、激しく雨が降り始めた。", pt: "No sooner ~ than ...", ex: `直訳から仕組みを理解しましょう。「私が家を出た（had I left）」のは、「大雨が降り始めた（it started）」よりも「決して（No）早くない（sooner）」。
+つまり、「家を出た時間」と「雨が降った時間」に差がない（同時である）ことを表しています。そこから「〜した途端に…した」という意味になります。
+文頭に否定語（No sooner）が出たため、前半の主節に「倒置（had I left）」が起きています。` },
+            { id: 32, en: "Hardly had she finished her speech when the audience burst into applause.", ja: "彼女がスピーチを終えるやいなや、聴衆は拍手喝采した。", pt: "Hardly ~ when/before ...", ex: `31問目と同じく、「〜するやいなや…した」という時間の近接を表す構文です。
+Hardly（ほとんど〜ない）という否定の副詞が文頭に出たため、倒置（had she finished）が起きています。
+「彼女がスピーチを終えたか終えないかのうちに（Hardly had she finished）、その時（when）、聴衆は拍手喝采した」。when の代わりに before が使われることもあります。` },
+            { id: 33, en: "Not until you lose your health do you fully appreciate its value.", ja: "健康を失って初めて、その価値を十分に理解する。", pt: "Not until ~ による倒置", ex: `「〜して初めて…する」という超重要構文です。
+元々は You do not fully appreciate... until you lose your health.（健康を失うまでは、その価値を完全に理解しない）。
+この「健康を失うまでは（until...）」を強調して文頭に出す際、一緒に否定語の not も連れて行き「Not until...」となりました。否定語が文頭に出た影響で、後ろの主節が疑問文の語順（do you fully appreciate）に倒置されています。` },
+            { id: 34, en: "Little did I imagine that I would one day be living in a foreign country.", ja: "自分がいつか外国に住むことになるとは、夢にも思わなかった。", pt: "否定副詞句による倒置", ex: `否定副詞句による倒置です。
+Little は a little（少しある）とは異なり、「ほとんど〜ない」という強い否定（準否定語）を表します。この Little を強調して文頭に出したため、後ろが did I imagine と疑問文の語順になっています。
+「私が想像する度合いは、ほぼゼロだった」＝「夢にも思わなかった」という意味になります。` },
+            { id: 35, en: "Only by working together can we overcome this unprecedented crisis.", ja: "協力することによってのみ、私たちはこの前例のない危機を乗り越えることができる。", pt: "Only + 前置詞句の倒置", ex: `Only は「〜だけ」という限定を表す副詞ですが、否定語の仲間として扱われます（「〜以外はない」という意味合いを持つため）。
+「一緒に協力することによってのみ（Only by working together）」という条件を強調して文頭に出した結果、後ろの主節が can we overcome と助動詞が前に出る倒置を起こしています。` },
+            { id: 36, en: "Were I to be born again, I would want to be a musician.", ja: "もしもう一度生まれるとしたら、私は音楽家になりたい。", pt: "仮定法未来の倒置 (ifの省略)", ex: `仮定法における「Ifの省略と倒置」です。
+本来は If I were to be born again, ...（万一もう一度生まれ変わるとしたら）という、未来の極めて可能性の低い仮定を表す構文（If S were to V）です。
+この If を省略すると、「普通の文じゃないぞ」というサインとして、主語と動詞がひっくり返り Were I to be... となります。` },
+            { id: 37, en: "Should you have any questions, please do not hesitate to contact us.", ja: "万一ご質問がありましたら、遠慮なくご連絡ください。", pt: "仮定法未来の倒置 (ifの省略)", ex: `こちらも仮定法の「Ifの省略と倒置」で、ビジネス英語でも非常によく使われます。
+本来は If you should have any questions, ...（万一ご質問がありましたら）という形です。If が省略され、助動詞の should が文頭に出ています。
+主節が命令文（please do not hesitate...）になっていることに注意してください。` },
+            { id: 38, en: "Had it not been for your prompt support, our project would have failed.", ja: "あなたの迅速な支援がなかったら、私たちのプロジェクトは失敗していただろう。", pt: "Had it not been for ~ (仮定法過去完了)", ex: `仮定法過去完了の「Ifの省略と倒置」を用いた慣用表現です。
+「If it had not been for ~（もし〜がなかったら）」の If が省略され、Had it not been for... と倒置されています。
+「過去の事実に対する反実仮想」を表すため、主節の動詞は would have failed（失敗していただろう）と過去完了の形になっています。Without ~ や But for ~ に書き換え可能です。` },
+            { id: 39, en: "But for the seatbelt, he would have been fatally injured in the accident.", ja: "シートベルトがなかったら、彼はその事故で致命傷を負っていただろう。", pt: "But for ~ (仮定法)", ex: `「But for ~」は Without ~ と同じく「もし〜がなければ / もし〜がなかったら」という仮定を表す前置詞句です。
+この but は「〜を除いて」という意味を持っています。「シートベルト（の存在）を除けば、彼は致命傷を負っていただろう」という理屈です。
+現在の仮定（仮定法過去）か、過去の仮定（仮定法過去完了）かは、主節の動詞の形（would have been injured）を見て判断します。` },
+            { id: 40, en: "He stood there silently with his arms folded across his chest.", ja: "彼は胸の前で腕を組んで、黙ってそこに立っていた。", pt: "付帯状況のwith", ex: `「付帯状況の with（〜を…した状態で）」と呼ばれる重要な構文です。
+with ＋ O（目的語）＋ C（補語）の形を取り、O と C の間には「主語と述語（O が C する / O が C される）」の関係が成り立ちます。
+ここでは「彼の腕（his arms）」と「組む（fold）」の関係を考えます。腕は（自分の意志によって）「組まれる」ものなので、受動の関係を表す過去分詞（folded）が使われています。` },
+            
+            // 41問目以降をすべて詳細解説にアップデート
+            { id: 41, en: "He is not so much a renowned scholar as a talented journalist.", ja: "彼は著名な学者というよりは、むしろ才能あるジャーナリストだ。", pt: "not so much A as B", ex: `「AというよりむしろB」という超頻出の比較構文です。
+直訳から論理をたどりましょう。so much は「それほど多く」という意味です。
+「彼は、才能あるジャーナリストであるの（as B）と【同じくらいそれほど（so much）】著名な学者（A）では【ない（not）】」。
+つまり、「Aの度合いは、Bの度合いほど多くない」＝「AというよりむしろBだ」となります。rather B than A と言い換えることができます。` },
+            { id: 42, en: "You are old enough to know better than to believe such rumors.", ja: "あなたはそんな噂を信じないくらいの分別を持てる年齢だ。", pt: "know better than to V", ex: `「〜するほど馬鹿ではない / 〜しないくらいの分別がある」という慣用句です。
+直訳すると「〜するよりも（than to V）、【より良いこと（better）を知っている（know）】」。
+「そんな噂を信じるような愚かな行動」と比較して、「もっとマシな行動や判断基準を知っているはずだ（だからそんなバカなことはしない）」という理屈です。to の後ろは動詞の原形が来ます。` },
+            { id: 43, en: "She is as brilliant a researcher as any I have ever worked with.", ja: "彼女は私が今まで一緒に働いた中で、誰にも劣らず優秀な研究者だ。", pt: "as + 形容詞 + a + 名詞 + as any", ex: `一見奇妙な語順（as brilliant a researcher）になる理由を理解しましょう。
+ここでの最初の as は副詞（同じくらい〜）なので、名詞（researcher）ではなく形容詞（brilliant）を直接修飾したがります。そのため、brilliant が冠詞（a）を飛び越えて as のすぐ後ろに引き寄せられるのです。
+（so や too, how でも同じ語順の逆転が起きます：too difficult a problem など）。
+後半の as any は「任意の（どの）人と同じくらい」＝「誰にも劣らず」という意味を作ります。` },
+            { id: 44, en: "The new smartphone is no less expensive than a high-end personal computer.", ja: "その新しいスマートフォンは、高性能なパソコンに劣らず高価だ。", pt: "no less ~ than ...", ex: `比較級における「no」は、「差がゼロ」であることを表す強烈な否定です。
+less は「より劣っている（マイナス）」という意味です。
+つまり「（スマホが）パソコンよりも【劣っている（less）】度合いが【ゼロ（no）】である」と言っています。ここから「（どちらも同じように）劣らず〜だ」という強い肯定（ダブルマイナス＝プラス）のニュアンスが生まれます。` },
+            { id: 45, en: "I cannot understand French, much less speak it fluently.", ja: "私はフランス語を理解できないし、ましてや流暢に話すことなどできない。", pt: "much less / still less", ex: `否定文の後に続いて「ましてや〜ない（言うまでもない）」を表す表現です。
+「フランス語を理解できない（マイナス状態）」と述べた上で、「流暢に話すことは、それよりも【ずっと（much）劣っている・可能性が低い（less）】」と追い打ちをかけています。
+肯定文に続いて「ましてや〜だ」と言う場合は、much more や still more に変わる点も論理通りです。` },
+            { id: 46, en: "The company is anything but successful, given its recent financial reports.", ja: "最近の財務報告を考慮すると、その会社は決して成功しているとは言えない。", pt: "anything but ~", ex: `「決して〜ではない」という強い否定を表す慣用句です。
+この but は「〜を除いて（except）」という前置詞の働きをします。
+直訳すると「成功している状態（successful）【を除いた（but）】【すべてのもの（anything）】である」。
+「成功以外のすべて」ということは、「絶対に成功とは呼べない」という完全否定の論理になります。far from ~ と同義です。` },
+            { id: 47, en: "What he told us yesterday was nothing but a series of lies.", ja: "昨日彼が私たちに言ったことは、嘘の連続にすぎなかった。", pt: "nothing but ~", ex: `前問の anything but と対になる表現で、「〜にすぎない（only）」という意味です。
+これも直訳してみましょう。「嘘の連続（a series of lies）【を除いては（but）】【何もない（nothing）】」。
+「それ以外には何もない」のだから、「ただの〜にすぎない」という意味になります。パズルのような英語の論理の美しさが光る表現です。` },
+            { id: 48, en: "The problem was too complicated for anyone in the room to solve quickly.", ja: "その問題は複雑すぎて、部屋にいる誰もすぐには解決できなかった。", pt: "too ~ to V", ex: `「〜すぎてVできない」という結果・程度の構文です。
+too は単なる「とても（very）」ではなく、「（基準を超えて）過剰である」というマイナスのニュアンスを含みます。「誰も素早く解くことができないレベルにまで、過剰に複雑だった」という理屈です。
+不定詞（to solve）の「意味上の主語」として、直前に for anyone が挿入されています。` },
+            { id: 49, en: "She was kind enough to show me the way to the nearest station.", ja: "彼女は親切にも最寄りの駅までの道を教えてくれた。", pt: "形容詞 + enough to V", ex: `「Vするのに十分なほど〜」という構文ですが、前問の too とは語順が異なります。
+副詞の enough は、必ず【修飾する形容詞や副詞の後ろから】掛かるという特別なルールを持っています（× enough kind ➔ ○ kind enough）。
+直訳は「駅への道を教えるのに十分なほど親切だった」ですが、自然な日本語では「親切にも〜してくれた」と結果的に訳すとうまくいきます。` },
+            { id: 50, en: "We must manage our resources carefully so as not to exhaust them.", ja: "資源を枯渇させないように、私たちは慎重に管理しなければならない。", pt: "so as not to V / in order not to V", ex: `「〜しないように」という目的の否定を表します。
+so as to V（〜するために）という不定詞のカタマリを否定する場合、否定語の not は必ず【不定詞（to V）の直前】に置くという大原則があります（× so as to not exhaust ➔ ○ so as not to exhaust）。
+in order not to V と言い換えても全く同じ働きをします。` },
+            { id: 51, en: "The manager strongly objected to changing the original schedule.", ja: "マネージャーは当初のスケジュールを変更することに強く反対した。", pt: "object to ~ing", ex: `受験生が最も引っかかりやすい「to ＋ 動名詞（〜ing）」の代表格です。
+なぜ原形ではなく ~ing なのでしょうか。この to は「不定詞を作る記号」ではなく、「方向・到達点（〜に対して）」を表す【前置詞】だからです。
+「スケジュールを変更する【という事柄（名詞）に向けて（to）】、異議（object）を投げつける」というイメージです。前置詞の後ろには名詞（または動名詞）しか置けません。` },
+            { id: 52, en: "I am looking forward to seeing you again at the upcoming conference.", ja: "次回の会議でまたお会いできるのを楽しみにしています。", pt: "look forward to ~ing", ex: `これも前問と同じく「前置詞の to」です。
+look forward は「前方（未来）を見る」という意味。そして to は「矢印（〜の方へ）」のイメージです。
+「あなたに再び会う【という出来事（名詞）に向けて（to）】、目線を前に向けて待っている」という理屈です。手紙やメールの結びの決まり文句としても超頻出です。` },
+            { id: 53, en: "He is not used to speaking in public, so he gets nervous easily.", ja: "彼は人前で話すことに慣れていないので、すぐに緊張してしまう。", pt: "be used to ~ing", ex: `これも「前置詞の to」シリーズ。「〜することに慣れている」という意味です。
+この used は「使われた」という受身ではなく、「（何度も反復して）馴染んだ、慣れた」という意味の形容詞です。
+「人前で話す【という状況（名詞）に対して（to）】、馴染んでいる」という論理です。
+※ used to V（昔はよく〜したものだ：助動詞的用法）と見た目が似ているため、頻繁にひっかけ問題として出題されます。` },
+            { id: 54, en: "It is no use trying to persuade him once he has made up his mind.", ja: "一度彼が決心してしまったら、説得しようとしても無駄だ。", pt: "It is no use ~ing", ex: `動名詞の慣用表現「〜しても無駄である」です。
+直訳から攻めましょう。use は名詞で「使い道、有用性」です。「彼を説得しようと試みること（trying）は、有用性がゼロ（no use）である（It is）」。
+It が形式主語、trying 以下が真主語になっています。「There is no point in ~ing」と同義の表現です。` },
+            { id: 55, en: "I don't feel like going out for dinner tonight; let's eat at home.", ja: "今夜は外食する気分ではないので、家で食べよう。", pt: "feel like ~ing", ex: `「〜したい気がする（気分だ）」という表現です。
+ここでの like は動詞（好き）ではなく、前置詞（〜のような）です。「今夜外食に行くこと（going out）【のような】気分（feel）」という直訳になります。
+否定文なので「〜するような気分を感じない」＝「〜する気になれない」となります。カジュアルな会話から試験まで幅広く使われます。` },
+            { id: 56, en: "On arriving at the airport, she immediately called her parents.", ja: "空港に到着するとすぐに、彼女は両親に電話した。", pt: "On ~ing", ex: `「〜するとすぐに」という時の表現です。
+前置詞 on のコアイメージは「接触（ピタッとくっついている）」です。「到着したという出来事」と「電話したという出来事」が、時間的にピタッと接触している（＝隙間がない）ことから、「〜するとすぐに（As soon as）」という意味が生まれます。` },
+            { id: 57, en: "In choosing a career, you should consider what you are passionate about.", ja: "職業を選ぶ際には、自分が何に情熱を持っているかを考慮すべきだ。", pt: "In ~ing", ex: `「〜する時に、〜する過程において」という表現です。
+前置詞 in のコアイメージは「空間や枠の中」です。「職業を選ぶという作業（枠）の【中で】」ということから、「〜する際に（When S V）」という意味になります。
+前問の On ~ing（接触・同時）と In ~ing（枠内・期間）の、前置詞のイメージの違いを掴んでください。` },
+            { id: 58, en: "This museum is definitely worth visiting if you are interested in modern art.", ja: "現代アートに興味があるなら、この美術館は間違いなく訪れる価値がある。", pt: "be worth ~ing", ex: `「〜する価値がある」という重要表現です。worth は形容詞ですが、後ろに名詞や動名詞を直接取る「前置詞のような働き」をします。
+この構文の最大のポイントは「主語（This museum）が、visiting の【目的語】になっている」という構造です。
+本来は visiting this museum（この美術館を訪れること）という関係ですが、その this museum が文の主語に引っ張り出されているため、visiting の後ろの目的語は空欄になっています。` },
+            { id: 59, en: "I tried to make myself understood in English, but my vocabulary was limited.", ja: "英語で自分の意思を伝えようとしたが、語彙が限られていた。", pt: "make oneself understood", ex: `「自分の言うことを（相手に）理解させる」という直訳しにくい重要表現です。
+第5文型（SVOC）で、make + O（oneself）+ C（understood）の構造です。
+OとCの関係を考えます。「自分自身（の考え）」は、相手によって「理解【される】」ものなので、受動関係を表す過去分詞（understood）が使われています。「自分自身が理解された状態を作る」＝「意思を伝える」となります。` },
+            { id: 60, en: "I apologize for keeping you waiting for such a long time.", ja: "こんなに長時間お待たせして申し訳ありません。", pt: "keep O C", ex: `「OをCの状態にしておく（保つ）」という第5文型の表現です。
+ここでも O（you）と C（waiting）の関係に注目します。「あなた（you）」は、自らの意思で「待っている（waiting）」状態なので、能動の関係を表す現在分詞（~ing）が使われます。
+「あなたを待っている状態のままキープしてごめんなさい」という構造です。` },
+            { id: 61, en: "I saw him cross the street and enter the convenience store.", ja: "彼が通りを渡ってコンビニに入るのを見た。", pt: "知覚動詞 O 原形不定詞", ex: `「知覚動詞（見る、聞くなど）＋ O ＋ 動詞の原形」の構文です。
+なぜ to が消えて原形が来るのでしょうか。to 不定詞は「未来・方向（これから〜する）」のニュアンスを持ちますが、知覚動詞は「実際に目の前で起きている【生の事実】」を伝えるため、to というフィルターを外した「裸の動詞（原形）」を使います。
+原形は「その動作の一部始終（最初から最後まで）」を見た・聞いたことを意味します。` },
+            { id: 62, en: "You must have this document translated into English by tomorrow.", ja: "明日までにこの書類を英語に翻訳してもらわなければならない。", pt: "使役動詞 O 過去分詞", ex: `使役動詞 have の「Oを〜してもらう（される状態を持つ）」という用法です。
+O（this document）と C（translated）の関係を考えます。書類は人間ではなく、自ら翻訳するわけではありません。「書類」は誰かによって「翻訳【される】」ものなので、受動の過去分詞（Vpp）が来ます。
+「この書類が、翻訳されたという状態を、あなたは持た（have）ねばならない」という論理です。` },
+            { id: 63, en: "I couldn't get my car started this morning because of the cold weather.", ja: "今朝は寒さのせいで、車のエンジンをかけることができなかった。", pt: "get O C (過去分詞)", ex: `使役の get を用いた「OをC（ある状態）に至らせる」という構文です。
+車（my car）とエンジンをかける（start）の関係に注目します。startはここでは「〜を始動させる」という他動詞です。車は自ら始動するのではなく、人間によって「始動【させられる】」関係にあるため、受身の過去分詞（started）が使われます。` },
+            { id: 64, en: "Please remain seated until the plane comes to a complete stop.", ja: "飛行機が完全に停止するまで、座ったままでいてください。", pt: "remain C (過去分詞)", ex: `「C（ある状態）のままでいる」という第2文型の構文です。
+なぜ sitting ではなく seated なのでしょうか。seat は「〜を座らせる」という他動詞です。
+飛行機や劇場などで「自分の席に座る」行為は、英語の感覚では「席という空間に自分を座らせる＝座らされている状態になる」と捉えるため、過去分詞の seated が「座っている状態」を表す形容詞として使われます。` },
+            { id: 65, en: "Strictly speaking, a tomato is classified as a fruit, not a vegetable.", ja: "厳密に言えば、トマトは野菜ではなく果物に分類される。", pt: "独立分詞構文の慣用表現", ex: `分詞構文の特殊パターン「独立分詞構文」の定型句です。
+本来、分詞構文は主節の主語（ここでは a tomato）と動作主が一致しなければなりませんが、「Strictly speaking（厳密に言うと）」「Generally speaking（一般的に言うと）」などの表現は、主語が誰であろうと文全体を修飾する【副詞のような独立したフレーズ】として使われます。丸暗記でOKな表現です。` },
+            { id: 66, en: "Judging from the look on her face, she didn't pass the examination.", ja: "彼女の表情から判断すると、試験には合格しなかったようだ。", pt: "Judging from ~", ex: `前問と同じく、主語の一致を問わない「独立分詞構文」の慣用表現です。
+「〜から判断すると（Judging from ~）」。
+主節の主語は she（彼女）ですが、判断しているのは話し手である「私（や一般の人）」です。主語が違ってもそのまま置いてよい、便利な前置きフレーズとして定着しています。` },
+            { id: 67, en: "Granted that he is a genius, he still needs to practice hard.", ja: "彼が天才だとしても、やはり熱心に練習する必要がある。", pt: "Granted (that) ~", ex: `分詞から派生した接続詞的な表現で、「仮に〜だとしても（譲歩）」を表します。
+grant は「〜を認める・与える」という動詞。「彼が天才だということ（that he is...）が、周囲によって【認められた（Granted）】状態だとしても」という受身の分詞構文がベースになっています。そこから「〜だとしても」という意味になりました。` },
+            { id: 68, en: "You can borrow my car providing that you return it by 8 PM.", ja: "午後8時までに返すという条件で、私の車を借りてもいいよ。", pt: "providing (that) ~ / provided (that) ~", ex: `「もし〜ならば / 〜という条件で」という、If の代わりとして使われる接続詞表現です。
+provide は「〜を提供する」。つまり、「〜という条件（that以下）が【提供される（provided） / 提供する（providing）】なら」という理屈です。
+提供する側・される側のどちらの視点に立つかの違いだけで、providing でも provided でも意味は同じです（on condition that と同義）。` },
+            { id: 69, en: "Suppose you won the lottery, what would you do with the money?", ja: "仮に宝くじに当たったとしたら、そのお金で何をしますか？", pt: "Suppose (that) ~ / Supposing (that) ~", ex: `これも If の代用表現で、「もし〜だとしたら」という仮定（想像）を促します。
+Suppose はもともと「〜と想定せよ」という動詞の命令形です。「あなたが宝くじに当たったと【頭の中で想定してみなさい】、さあどうする？」と相手に投げかけるニュアンスです。
+現在のことの想像（仮定法過去）なので、後ろの動詞が won や would になっています。` },
+            { id: 70, en: "He is what is called a walking dictionary when it comes to baseball.", ja: "野球のこととなると、彼はいわゆる生き字引だ。", pt: "what is called / when it comes to", ex: `2つの重要構文が含まれています。
+1. what is called: ここでの what は「the thing which（〜であるところのもの）」。つまり「世間の人々によって『呼ばれている』ところのもの」＝「いわゆる」という意味の挿入句です。
+2. when it comes to ~: この to は前置詞なので後ろは名詞（野球）。直訳「話が野球に【至る（comes to）】時には」＝「〜のこととなると」。` },
+            { id: 71, en: "Our city is completely different from what it was ten years ago.", ja: "私たちの町は、10年前の姿とは完全に異なっている。", pt: "what S was", ex: `関係代名詞 what の特殊な用法で「（過去の）Sの姿・状態」を表します。
+what ＝ the state which（状態）。「10年前のそれ（町）が存在した（was）状態」という理屈です。
+・what S is: 今のS（の姿・状態）
+・what S will be: 未来のS（の姿）
+・what S should be: Sの本来あるべき姿
+このようにbe動詞の時制を変えることで自在に表現できます。` },
+            { id: 72, en: "He missed the train, and what was worse, he lost his wallet.", ja: "彼は電車に乗り遅れ、さらに悪いことに財布をなくした。", pt: "what is worse", ex: `関係代名詞 what を用いた挿入句「さらに悪いことに」です。
+what = the thing which（こと）。「（すでに悪い出来事があった上で）さらに悪かった【事】は〜」と、文の途中に状況を追加する働きをします。
+・what is more: さらに（おまけに）
+・what is better: さらに良いことに
+など、形容詞を変えることで様々な追加情報を示すことができます（to make matters worse と同義）。` },
+            { id: 73, en: "Whoever may call, tell them I am not available at the moment.", ja: "誰が電話をかけてこようと、今は出られないと伝えてください。", pt: "複合関係代名詞 (譲歩)", ex: `「who（誰）」＋「ever（〜でも）」で構成される複合関係代名詞です。
+ここではコンマ（,）で区切られて文全体を修飾する「譲歩の副詞節」を作っており、「誰が〜しようとも（No matter who）」と訳します。
+※ may は「ひょっとして〜かもしれない」という不確実な未来への推量を表す助動詞として、この構文でよく一緒に使われます。` },
+            { id: 74, en: "Whatever decision you make, we will always support you.", ja: "あなたがどんな決定を下そうとも、私たちは常にあなたを支持します。", pt: "複合関係形容詞", ex: `「Whatever ＋ 名詞」で「どんな（名詞）を〜しようとも」という意味を作ります（複合関係形容詞と呼ばれます）。
+Whatever が後ろの decision（決定）に直接掛かっており、「No matter what decision」に書き換えることができます。
+「どんな決定を（Whatever decision）あなたが作ろうとも（you make）」。` },
+            { id: 75, en: "Whenever I listen to this song, it reminds me of my high school days.", ja: "この歌を聴くたびに、高校時代を思い出す。", pt: "複合関係副詞 (Whenever)", ex: `「when（いつ）」＋「ever（〜でも）」で、「〜する時はいつでも」という時を表す副詞節を作ります。
+「Every time S V（SがVする時は毎回）」と言い換えることができます。
+後半の「remind A of B（AにBを思い出させる）」も、無生物主語（it = この歌）と一緒に頻出する超重要イディオムです。` },
+            { id: 76, en: "No matter how wealthy a man may be, he cannot buy true friendship.", ja: "どんなに裕福であっても、真の友情はお金で買うことはできない。", pt: "No matter how + 形/副", ex: `However wealthy... と書き換え可能な譲歩構文です。
+ポイントは語順です。「how」は「どのくらい」と程度を尋ねる副詞なので、必ず直後に形容詞や副詞（ここでは wealthy）をくっつけて引っ張り出します。
+「No matter how（どんなに）＋ wealthy（裕福）＋ a man may be（人がそうであっても）」。冠詞（a man）よりも前に形容詞が出る点に注意してください。` },
+            { id: 77, en: "I don't like the way he talks to his subordinates.", ja: "私は彼が部下に対して話す口調が好きではない。", pt: "the way S V", ex: `「SがVする方法、やり方」を表します。
+本来なら「方法（the way）」を修飾する関係副詞は「how」ですが、現代英語のルールとして【the way how と並べて書くことはできない】という厳しい掟があります。
+そのため、① the way S V、② how S V、③ the way in which S V、のいずれかの形を取らなければなりません（ここでは①）。` },
+            { id: 78, en: "The reason why she turned down the offer remains a mystery.", ja: "彼女がその申し出を断った理由は謎のままだ。", pt: "関係副詞 why", ex: `先行詞 the reason（理由）を、関係副詞 why 以下の節が修飾しています。
+「（なぜなら〜という）理由」という直訳から、「〜する理由」となります。前問の the way how とは異なり、the reason why は並べて書くことができます。
+（なお、turn down は「ボリュームを下げる」から転じて「申し出などをハネつける・拒絶する」という重要熟語です）。` },
+            { id: 79, en: "This is the very hospital where I was born twenty years ago.", ja: "こここそが、私が20年前に生まれたまさにその病院だ。", pt: "the very + 名詞 / 関係副詞 where", ex: `the very ＋ 名詞は、「とても」という副詞ではなく「まさにその〜」と名詞を強調する形容詞の働きをします。
+後ろの関係副詞 where に注目しましょう。「私が20年前に生まれた（I was born...）」という、それだけで意味が通じる【完全な文】が来ています。
+文の要素（SやO）が欠けていないため、関係代名詞（which）ではなく関係副詞（where ＝ in which）を使います。` },
+            { id: 80, en: "There was a time when dinosaurs roamed the earth.", ja: "恐竜が地球を歩き回っていた時代があった。", pt: "関係副詞 when", ex: `先行詞 a time（時代）を、関係副詞 when 以下の節が修飾しています。
+これも前問と同様、「恐竜が地球を歩き回った」という【完全な文】が後ろに来ているため、関係代名詞ではなく関係副詞 when を使います。
+直訳は「（その時に）恐竜が地球を歩き回った、そんな時代が存在した」。` },
+            { id: 81, en: "That is why we need to implement alternative energy sources.", ja: "そういうわけで、私たちは代替エネルギー源を導入する必要があるのだ。", pt: "That is why ~", ex: `That is (the reason) why... の先行詞（the reason）が省略された形です。
+That（前文で述べたこと）が、why 以下（私たちが導入する必要がある）の【理由（the reason）】である。
+つまり「前文のこと ➔ だから ➔ 〜だ」という、結果を導くつなぎ言葉（そういうわけで〜だ）として機能します。Because（なぜなら）と逆に訳さないよう注意。` },
+            { id: 82, en: "She practiced day and night, and that is how she won the championship.", ja: "彼女は昼夜を問わず練習し、そのようにして選手権で優勝した。", pt: "that is how ~", ex: `That is the way how...（the way か how のどちらかは消える）の構文です。
+That（前文で述べた練習という方法）が、how 以下（彼女が優勝した）の【方法・やり方】である。
+つまり「そういう方法で〜した」＝「そのようにして〜した」と訳します。長文読解において、具体例や過程の「まとめ（結論）」を示す重要なサインになります。` },
+            { id: 83, en: "It is true that the policy has some flaws, but it is better than nothing.", ja: "確かにその政策にはいくつかの欠陥があるが、何もないよりはましだ。", pt: "It is true ~, but ...", ex: `「確かに〜だが、しかし…」という「譲歩」の論理構造です。
+英語の議論（ディベートや小論文）の鉄則として、「一度相手の意見やマイナス要素を認める（It is true...）」ことで客観性を示し、その直後に「逆接（but）」を置いて、本当に言いたい自分の主張（... better than nothing）をドカンとぶつけます。
+筆者の主張は常に but の後ろにあります。` },
+            { id: 84, en: "Indeed, she is young, but she has a lot of experience in this field.", ja: "確かに彼女は若いが、この分野では豊富な経験を持っている。", pt: "Indeed ~, but ...", ex: `前問の It is true ~, but... と全く同じ「譲歩」の論理構造を作る副詞です。
+Indeed（なるほど確かに）と一度譲ってから、but（しかし）で本音を述べます。
+他にも、Of course ~, but... / To be sure ~, but... / May ~, but... など、この「譲歩 ➔ 逆接 ➔ 主張」のパターンは長文読解の要（かなめ）となります。` },
+            { id: 85, en: "Not all of the students agreed with the new school regulations.", ja: "すべての学生が新しい校則に同意したわけではない。", pt: "部分否定", ex: `「すべてが〜というわけではない（同意した人もいれば、していない人もいる）」という【部分否定】です。
+強い全称を表す言葉（all, every, both, always, completely など）と not が組み合わさると、「100%ではない（一部はそうだが、全部じゃない）」という意味になります。
+「誰も同意しなかった（0%）」ではない点に注意が必要です。` },
+            { id: 86, en: "None of the passengers on board were injured in the emergency landing.", ja: "乗客の誰も、その緊急着陸で負傷しなかった。", pt: "完全否定", ex: `前問の部分否定とは対照的に、「1つも〜ない、誰も〜ない（0%）」という【完全否定】を表します。
+None は「3つ（3人）以上」の中でゼロであることを表します。
+ちなみに、2つ（2人）の中でゼロである場合は neither、誰もいない（単数扱い）場合は nobody を使います。英語は「否定語を文頭に置いて、文全体を最初から否定する」のを好む言語です。` },
+            { id: 87, en: "Neither the manager nor the employees were aware of the system failure.", ja: "マネージャーも従業員も、システム障害に気づいていなかった。", pt: "Neither A nor B", ex: `「AもBも、どちらも〜ない」という完全否定の相関接続詞です（not either A or B と同じ）。
+文法問題での最大のポイントは【動詞の数の一致】です。
+この構文が主語になった場合、動詞は原則として「近い方の名詞（B）」に合わせます。ここでは B が the employees（複数形）なので、動詞は was ではなく were になります。` },
+            { id: 88, en: "You must either apologize to her or leave this room immediately.", ja: "あなたは彼女に謝るか、今すぐこの部屋を出ていくかのどちらかにしなければならない。", pt: "either A or B", ex: `「AかBかのどちらか一方」という選択を表します。
+相関接続詞（A and B, A or B など）の鉄則は、「AとBには、文法的に同じ形（等位）のものを並べる」ということです。
+ここでは A が apologize（動詞の原形）、B が leave（動詞の原形）と、綺麗に天秤が釣り合っています。` },
+            { id: 89, en: "The true measure of a man is not what he has, but what he is.", ja: "人間の真の価値は、財産（持っているもの）ではなく、人柄（その人自身）である。", pt: "what he has / what he is", ex: `関係代名詞 what を用いた、名言によくある対比表現です。
+what he has は「彼が持っているもの」＝「財産・地位」。
+what he is は「彼が存在している状態」＝「今の人となり・人柄」。
+not A but B（AではなくB）の構文に乗せて、「人間の尺度は、持ち物ではなく、その人自身の人格である」という深い意味を表しています。` },
+            { id: 90, en: "Make sure you never fail to submit your assignments on time.", ja: "必ず期限通りに課題を提出するようにしてください。", pt: "never fail to V", ex: `「決して〜し損なわない」から転じて「必ず〜する（＝always）」という意味になる二重否定の表現です。
+fail to V（〜し損なう）というマイナス要素を、never（決して〜ない）というマイナスで打ち消すため、強いプラス（肯定）の命令や指示を表します。
+ビジネスや学校のルールの文脈でよく見かけます。` },
+            { id: 91, en: "Far from being a failure, the experiment provided us with valuable data.", ja: "失敗どころか、その実験は私たちに貴重なデータを提供してくれた。", pt: "Far from ~", ex: `「〜からは遠く離れている」という直訳から、「決して〜ではない（〜どころではない）」という強い否定を表す慣用句です。
+距離が遠い ➔ 事実からかけ離れている ➔ 全然違う、というイメージの広がりです。
+anything but ~（46問目）や by no means と同じく、notを使わずに否定を表現するテクニックです。` },
+            { id: 92, en: "This software is completely free from bugs and runs smoothly.", ja: "このソフトウェアにはバグが全くなく、スムーズに動作する。", pt: "free from ~", ex: `「〜（嫌なもの・負担）がない」という意味の表現です。
+free は「自由な」という意味ですが、「何から自由なのか？」というと「縛り付けるものやマイナス要素（ここではバグ）から解放されて自由だ」ということです。
+sugar-free（無糖）や duty-free（免税）などの語源にもなっている、ポジティブな意味での「無い」を表します。` },
+            { id: 93, en: "The beauty of the sunset over the ocean was beyond description.", ja: "海に沈む夕日の美しさは、言葉では言い表せないほどだった。", pt: "beyond + 名詞", ex: `前置詞 beyond のコアイメージは「〜の向こう側に、〜の限界を超えて」です。
+beyond description は「描写（description）できる限界を超えている」＝「言葉では言い表せない」。
+他にも beyond belief（信じられない）、beyond control（制御不能）など、人間の能力や想像の限界を「超えている」ことを表すオシャレな表現です。` },
+            { id: 94, en: "His performance in the final match left nothing to be desired.", ja: "決勝戦での彼のプレーは、全く申し分のないものだった。", pt: "leave nothing to be desired", ex: `直訳すると「望まれる【べき】もの（to be desired）を、何ひとつ（nothing）残さない（leave）」。
+つまり、「もうこれ以上直してほしい箇所や、もっとこうしてほしいという要望がひとつも残っていない」＝「完璧である、申し分ない」という最高評価を表す慣用句です。
+逆に「遺憾な点が多い」場合は leave much to be desired となります。` },
+            { id: 95, en: "It matters little who does the work as long as it gets done.", ja: "仕事が完了する限り、誰がその仕事をするかはほとんど重要ではない。", pt: "It matters little ~ / as long as", ex: `matter は動詞で「重要である・問題である」。little は「ほとんど〜ない」という否定を表す副詞です。
+「It（形式主語）は重要性がゼロに等しい」。何が？ ➔ who does the work（誰がやるか：真主語）。
+後半の as long as は「〜する限りは」という【条件】を表す接続詞。as far as（〜する範囲では：知識などの範囲）との違いを明確にしておきましょう。` },
+            { id: 96, en: "The rumor that the company is going bankrupt turned out to be false.", ja: "その会社が倒産するという噂は、嘘であると判明した。", pt: "同格のthat / turn out to be", ex: `「同格の that」の典型例です。
+The rumor（噂）という抽象的な名詞の中身を、that 以下の【完全な文】（会社が倒産する）が「＝（イコール）」の関係で詳しく説明しています（〜という噂）。
+turn out to be ~ は「（結果として蓋を開けてみたら）〜であると判明する・わかる」という超重要熟語です。` },
+            { id: 97, en: "He demanded that the broken item be replaced immediately.", ja: "彼は壊れた品物を直ちに交換するよう要求した。", pt: "要求の動詞 + that節 + (should) 原形", ex: `第6問目の復習です。
+demand（要求する）、suggest（提案する）などの「まだ起きていない未来への働きかけ」を表す動詞の後の that 節では、動詞は「原形」になります。
+「これから交換される【べき（should）】だ」という、頭の中で思い描いた仮想の事実（仮定法現在）であるため、助動詞 should が省略されて原形の be だけが残っています。` },
+            { id: 98, en: "Some people like coffee, while others prefer tea.", ja: "コーヒーが好きな人もいれば、紅茶の方が好きな人もいる。", pt: "while (対比)", ex: `接続詞 while には「〜している間に（時間）」という意味の他に、この文のような「〜である一方で…だ」という【対比】を表す重要な用法があります。
+Some ~, others ...（〜な人もいれば、…な人もいる）という対比の構文と非常に相性が良く、whereas とほぼ同じ働きをします。長文で対立する2つの意見を整理する際のキーとなります。` },
+            { id: 99, en: "The higher you climb the mountain, the colder the air becomes.", ja: "山を高く登れば登るほど、空気は冷たくなる。", pt: "The 比較級 ~, the 比較級 ...", ex: `第15問目の復習です。「〜すればするほど、ますます…」という比例関係を表します。
+この the は冠詞ではなく、「その分だけ」という程度の副詞です。
+「（前半の条件の）分だけ高く登ると、（後半の結果の）分だけ冷たくなる」という、シーソーが連動して動くようなイメージを持ってください。` },
+            { id: 100, en: "It is not until we lose our health that we realize the value of it.", ja: "健康を失って初めて、私たちはその価値に気づくのだ。", pt: "It is not until ~ that ...", ex: `第33問目（Not untilによる倒置）の書き換えとして頻出する、大学受験英語の集大成とも言える構文です。
+「It is ~ that ...」の強調構文の枠組みの中に、「not until we lose our health（健康を失うまで〜ない）」という要素を丸ごと挟み込んで強調しています。
+直訳は「私たちがその価値に気づくのは、健康を失う時まで無い」。そこから「健康を失って初めて気づく」と訳し下げます。` }
+        ];
+
+        const App = () => {
+            const [currentIndex, setCurrentIndex] = React.useState(0);
+            const [showAnswer, setShowAnswer] = React.useState(false);
+            const [masteredIds, setMasteredIds] = React.useState(() => {
+                const saved = localStorage.getItem('masteredDrills');
+                return saved ? JSON.parse(saved) : [];
+            });
+            const [isSidebarOpen, setIsSidebarOpen] = React.useState(false);
+            const [playbackRate, setPlaybackRate] = React.useState(1.0);
+
+            const currentData = drillData[currentIndex];
+            const masteredCount = masteredIds.length;
+            const progressPercentage = Math.round((masteredCount / drillData.length) * 100);
+
+            // Effect to save mastered items to localStorage
+            React.useEffect(() => {
+                localStorage.setItem('masteredDrills', JSON.stringify(masteredIds));
+            }, [masteredIds]);
+
+            // 問題が切り替わったときに音声を停止する
+            React.useEffect(() => {
+                if ('speechSynthesis' in window) {
+                    window.speechSynthesis.cancel();
+                }
+            }, [currentIndex]);
+
+            // アンマウント時（アプリ終了時）に音声を停止する
+            React.useEffect(() => {
+                return () => {
+                    if ('speechSynthesis' in window) {
+                        window.speechSynthesis.cancel();
+                    }
+                };
+            }, []);
+
+            const speakText = (text) => {
+                if ('speechSynthesis' in window) {
+                    // 再生中の音声をキャンセルして新しく再生
+                    window.speechSynthesis.cancel();
+                    const utterance = new SpeechSynthesisUtterance(text);
+                    utterance.lang = 'en-US'; // 英語に設定
+                    utterance.rate = playbackRate; // スピードを設定
+                    window.speechSynthesis.speak(utterance);
+                } else {
+                    alert('お使いのブラウザは音声読み上げに対応していません。');
+                }
+            };
+
+            const handleNext = () => {
+                if (currentIndex < drillData.length - 1) {
+                    setCurrentIndex(prev => prev + 1);
+                    setShowAnswer(false);
+                }
+            };
+
+            const handlePrev = () => {
+                if (currentIndex > 0) {
+                    setCurrentIndex(prev => prev - 1);
+                    setShowAnswer(false);
+                }
+            };
+
+            const toggleMastered = (id) => {
+                setMasteredIds(prev => 
+                    prev.includes(id) ? prev.filter(mId => mId !== id) : [...prev, id]
+                );
+            };
+
+            const jumpToQuestion = (index) => {
+                setCurrentIndex(index);
+                setShowAnswer(false);
+                setIsSidebarOpen(false);
+            };
+
+            const isCurrentMastered = masteredIds.includes(currentData.id);
+
+            return (
+                <div className="flex h-screen overflow-hidden bg-gray-50">
+                    
+                    {/* Sidebar / List View */}
+                    <div className={`fixed inset-y-0 left-0 z-20 w-80 bg-white border-r shadow-lg transform transition-transform duration-300 ease-in-out flex flex-col ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'} md:relative md:translate-x-0`}>
+                        <div className="p-4 border-b bg-indigo-600 text-white flex justify-between items-center">
+                            <h2 className="font-bold text-lg">全100問リスト</h2>
+                            <button className="md:hidden text-white" onClick={() => setIsSidebarOpen(false)}>
+                                <i className="fas fa-times text-xl"></i>
+                            </button>
+                        </div>
+                        <div className="flex-1 overflow-y-auto hide-scrollbar p-2">
+                            {drillData.map((item, idx) => {
+                                const mastered = masteredIds.includes(item.id);
+                                return (
+                                    <button 
+                                        key={item.id}
+                                        onClick={() => jumpToQuestion(idx)}
+                                        className={`w-full text-left p-3 mb-1 rounded-lg flex items-center gap-3 transition-colors ${idx === currentIndex ? 'bg-indigo-100 border-l-4 border-indigo-500' : 'hover:bg-gray-100'}`}
+                                    >
+                                        <div className="flex-shrink-0 w-6 text-sm font-bold text-gray-500 text-center">
+                                            {item.id}
+                                        </div>
+                                        <div className="flex-1 truncate text-sm font-medium text-gray-800">
+                                            {item.en}
+                                        </div>
+                                        <div className="flex-shrink-0 text-gray-400">
+                                            {mastered && <i className="fas fa-check-circle text-green-500"></i>}
+                                        </div>
+                                    </button>
+                                );
+                            })}
+                        </div>
+                    </div>
+
+                    {/* Main Content Area */}
+                    <div className="flex-1 flex flex-col h-screen overflow-hidden relative">
+                        
+                        {/* Header */}
+                        <header className="bg-white shadow-sm p-4 flex items-center justify-between z-10">
+                            <div className="flex items-center gap-4">
+                                <button className="md:hidden text-gray-600 hover:text-indigo-600" onClick={() => setIsSidebarOpen(true)}>
+                                    <i className="fas fa-bars text-xl"></i>
+                                </button>
+                                <h1 className="text-xl font-bold text-gray-800 tracking-tight"><i className="fas fa-book-open text-indigo-500 mr-2"></i>英文解釈ドリル</h1>
+                            </div>
+                            <div className="text-sm font-semibold text-gray-600 flex items-center gap-2">
+                                <span>Mastered:</span>
+                                <span className="bg-indigo-100 text-indigo-800 py-1 px-3 rounded-full">{masteredCount} / 100</span>
+                            </div>
+                        </header>
+
+                        {/* Progress Bar */}
+                        <div className="w-full bg-gray-200 h-1.5">
+                            <div className="bg-indigo-500 h-1.5 transition-all duration-500 ease-out" style={{ width: `${progressPercentage}%` }}></div>
+                        </div>
+
+                        {/* Flashcard Area */}
+                        <main className="flex-1 overflow-y-auto p-4 md:p-8 flex flex-col">
+                            
+                            <div className="w-full max-w-3xl mx-auto my-auto flex-shrink-0 flex flex-col py-4">
+                                <div className="w-full bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden flex flex-col">
+                                
+                                    {/* Card Header */}
+                                <div className="flex justify-between items-center p-4 border-b bg-gray-50 flex-wrap gap-4">
+                                    <div className="flex items-center gap-4">
+                                        <span className="text-sm font-bold text-gray-400">Question {currentData.id}</span>
+                                        {}
+                                        <div className="flex items-center gap-2 text-sm text-gray-600 bg-white px-3 py-1 rounded-full border shadow-sm">
+                                            <i className="fas fa-tachometer-alt text-gray-400" title="再生スピード"></i>
+                                            <input
+                                                type="range"
+                                                min="0.5"
+                                                max="2.0"
+                                                step="0.1"
+                                                value={playbackRate}
+                                                onChange={(e) => setPlaybackRate(parseFloat(e.target.value))}
+                                                className="w-20 md:w-24 accent-indigo-500 cursor-pointer"
+                                                title="再生スピード"
+                                            />
+                                            <span className="w-10 font-mono text-center">{playbackRate.toFixed(1)}x</span>
+                                        </div>
+                                    </div>
+                                    <button
+                                        onClick={() => toggleMastered(currentData.id)}
+                                        className={`flex items-center gap-2 px-3 py-1.5 rounded-md text-sm font-medium transition-colors ${isCurrentMastered ? 'bg-green-100 text-green-700' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}`}
+                                    >
+                                        <i className={`fas fa-check ${isCurrentMastered ? 'opacity-100' : 'opacity-30'}`}></i>
+                                        {isCurrentMastered ? 'Mastered!' : 'Mark as Mastered'}
+                                    </button>
+                                </div>
+
+                                {/* English Sentence (Always visible) */}
+                                <div className="p-6 md:p-10">
+                                    {}
+                                    <div className="flex items-start justify-between gap-4 mb-8">
+                                        <h2 className="text-2xl md:text-3xl font-bold text-gray-800 leading-tight flex-1">
+                                            {currentData.en}
+                                        </h2>
+                                        <button
+                                            onClick={() => speakText(currentData.en)}
+                                            className="w-12 h-12 flex-shrink-0 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center hover:bg-indigo-200 transition-colors shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                                            title="英文を読み上げる"
+                                        >
+                                            <i className="fas fa-volume-up text-xl"></i>
+                                        </button>
+                                    </div>
+
+                                    {/* Reveal Button or Answer */}
+                                    {!showAnswer ? (
+                                        <div className="flex justify-center mt-4">
+                                            <button 
+                                                onClick={() => setShowAnswer(true)}
+                                                className="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-8 rounded-full shadow-md transition-transform transform hover:scale-105"
+                                            >
+                                                解説を見る <i className="fas fa-chevron-down ml-2"></i>
+                                            </button>
+                                        </div>
+                                    ) : (
+                                        <div className="space-y-6 animate-fade-in-up">
+                                            {/* Translation */}
+                                            <div className="bg-blue-50 border-l-4 border-blue-400 p-4 rounded-r-lg">
+                                                <h3 className="text-xs font-bold text-blue-800 uppercase tracking-wider mb-1"><i className="fas fa-language mr-1"></i>和訳</h3>
+                                                <p className="text-gray-800 font-medium text-lg">{currentData.ja}</p>
+                                            </div>
+
+                                            {/* Key Point */}
+                                            <div className="flex items-start gap-3">
+                                                <div className="bg-rose-100 text-rose-600 p-2 rounded-lg mt-1">
+                                                    <i className="fas fa-lightbulb"></i>
+                                                </div>
+                                                <div>
+                                                    <h3 className="text-xs font-bold text-rose-600 uppercase tracking-wider mb-1">構文ポイント</h3>
+                                                    <span className="inline-block bg-gray-100 text-gray-800 font-semibold px-3 py-1 rounded border">{currentData.pt}</span>
+                                                </div>
+                                            </div>
+
+                                            {/* Detailed Explanation */}
+                                            <div className="flex items-start gap-3">
+                                                <div className="bg-emerald-100 text-emerald-600 p-2 rounded-lg mt-1">
+                                                    <i className="fas fa-graduation-cap"></i>
+                                                </div>
+                                                <div>
+                                                    <h3 className="text-xs font-bold text-emerald-600 uppercase tracking-wider mb-1">詳細解説</h3>
+                                                    <p className="text-gray-700 leading-relaxed whitespace-pre-line">
+                                                        {currentData.ex}
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    )}
+                                </div>
+                            </div>
+
+                            {/* Controls */}
+                            <div className="w-full flex justify-between items-center mt-8">
+                                <button 
+                                    onClick={handlePrev} 
+                                    disabled={currentIndex === 0}
+                                    className={`flex items-center gap-2 px-6 py-3 rounded-full font-semibold transition-colors ${currentIndex === 0 ? 'bg-gray-200 text-gray-400 cursor-not-allowed' : 'bg-white shadow hover:bg-gray-50 text-gray-700'}`}
+                                >
+                                    <i className="fas fa-arrow-left"></i> 前へ
+                                </button>
+                                
+                                <span className="text-gray-500 font-medium">
+                                    {currentIndex + 1} / 100
+                                </span>
+
+                                <button 
+                                    onClick={handleNext} 
+                                    disabled={currentIndex === drillData.length - 1}
+                                    className={`flex items-center gap-2 px-6 py-3 rounded-full font-semibold transition-colors ${currentIndex === drillData.length - 1 ? 'bg-gray-200 text-gray-400 cursor-not-allowed' : 'bg-white shadow hover:bg-gray-50 text-gray-700'}`}
+                                >
+                                    次へ <i className="fas fa-arrow-right"></i>
+                                </button>
+                            </div>
+                            
+                            </div>
+                        </main>
+                        
+                    </div>
+                </div>
+            );
+        };
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+    
+    <style>
+        /* Custom Keyframes for smooth answer reveal */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in-up {
+            animation: fadeInUp 0.4s ease-out forwards;
+        }
+    </style>
+</body>
+</html>
